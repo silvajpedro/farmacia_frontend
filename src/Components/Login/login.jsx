@@ -9,8 +9,10 @@ export default function login(){
             <S.LogoContainer>
             <S.Logo src={logo} alt="" />
             </S.LogoContainer>
-            <form>
-
+            <form onSubmit={(e)=> e.preventDefault()}>
+                <label>Usuário</label>
+                <label>Senha</label>
+                <button>Logar</button>
             </form>
         </S.LoginBox>
        </S.MainBox>
