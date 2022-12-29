@@ -13,19 +13,12 @@ const [active, setActive] = useState(true)
             </S.LogoContainer>
             <S.FormBox onSubmit={(e)=> e.preventDefault()}>
                 <label>Usuário</label>
-                <input onClick={()=>(
-                    
-                    setOn(!On),
-                    setActive(true)
-                    )} type="text" placeholder="entre com seu usuário" title="digite seu nome"/>
+                <input onClick={()=>( (setOn(!On)) (setActive(true)))} type="text" placeholder="Entre com seu usuário" title="digite seu nome"/>
                 <S.Line  isOn={On}></S.Line>
                 <label>Senha</label>
-                <input onClick={()=>(
-                    setOn(true),
-                    setActive(!active)
-                )} type="text" placeholder="entre com sua senha" title="digite seu nome"/>
+                <input onClick={()=>( (setOn(true)) (setActive(!active)) )} type="password" placeholder="Entre com sua senha" title="digite seu nome"/>
                 <S.Line isOn={active}></S.Line>
-                <button>Logar</button>
+                {/* <button>Logar</button> */}
             </S.FormBox>
         </S.LoginBox>
        </S.MainBox>
