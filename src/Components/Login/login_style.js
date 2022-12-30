@@ -55,11 +55,10 @@ export const PasswordInput = styled(UserInput)`
   background-image: url(${cadeado});
   font-size: 1.4vw;
 `;
-
 export const Line = styled.div`
   background-color: #ffff;
   height: 1.8px;
-  transition: ease-in-out 0.9s;
+  transition: ease-in-out 0.6s;
   box-shadow: ${(props) =>
     props.isOn ? "none" : "inset #1976D2 30vw 0px 0px 0px"};
 `;
