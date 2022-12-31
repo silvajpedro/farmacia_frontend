@@ -18,7 +18,9 @@ const [active, setActive] = useState(true)
                 <label>Senha</label>
                 <S.PasswordInput onClick={()=>( (setOn(true)) (setActive(!active)) )} type="password" placeholder="Entre com sua senha" title="digite seu nome"/>
                 <S.Line isOn={active}></S.Line>
+                <S.ButtonBox>
                 <button>LOGAR</button>
+                </S.ButtonBox>
             </S.FormBox>
         </S.LoginBox>
        </S.MainBox>
