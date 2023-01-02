@@ -23,7 +23,7 @@ const [active, setActive] = useState(true)
                 </S.ButtonBox>
             </S.FormBox>
                 <S.RegisterBox>
-                    <p>Não tem uma conta?</p>
+                    <p>branch teste</p>
                     <ul>
                         <li>Cadastre-se</li>
                     </ul>
