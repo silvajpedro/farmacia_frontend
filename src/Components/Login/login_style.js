@@ -2,7 +2,16 @@ import styled from "styled-components";
 import background from "../../Assets/rainbow-vortex.png";
 import cadeado from "../../Assets/cadeado_senha.png";
 import usuario from "../../Assets/usuario.png";
+import { createGlobalStyle } from "styled-components";
 
+export const GlobalStyle = createGlobalStyle`
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+`
 export const MainBox = styled.main`
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
   display: flex;
@@ -21,11 +30,10 @@ export const LoginBox = styled.section`
   height: 85vh;
   width: 31vw;
   background-color: #330461;
-  border: solid;
 `;
 export const LogoContainer = styled(MainBox)`
   background-image: none;
-  height: 30vh;
+  height: 29vh;
 `;
 export const Logo = styled.img`
   width: 10.54vw;
@@ -36,8 +44,7 @@ export const FormBox = styled.form`
   justify-content: space-evenly;
   width: 66%;
   color: #ccbcad;
-  border: solid;
-  height: 38vh;
+  height: 39vh;
   label {
     position: relative;
     top: 0.5vh;
@@ -82,7 +89,7 @@ export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid red;
+  /* border: solid red; */
   height: 16vh;
   button {
     width: 9vw;
@@ -99,14 +106,37 @@ export const ButtonBox = styled.div`
   }
 `;
 export const RegisterBox = styled.nav`
-border: solid;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+font-family: "Quicksand", sans-serif;
+text-align: center;
+/* border: solid; */
 color: #F9FFFF;
+width: 14vw;
+height: 14vh;
 p{
-  font-size:1.3vw;
+  font-size:1.2vw;
+  font-weight: 500;
 }
 ul{
-  border:solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   list-style: none;
+  /* border:solid; */
 }
+li{
+  font-weight: 900;
+  cursor: pointer;
+}
+`
+export const ThirdLine = styled(Line)`
+box-shadow: none;
+width: ${(props) =>
+    props.isOn ? "0vw" : "7vw"};
+height: 0.3vh;
+transition:0.6s;
 `
