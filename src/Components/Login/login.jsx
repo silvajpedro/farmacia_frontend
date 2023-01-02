@@ -17,11 +17,17 @@ const [active, setActive] = useState(true)
                 <S.Line  isOn={On}></S.Line>
                 <label>Senha</label>
                 <S.PasswordInput onClick={()=>( (setOn(true)) (setActive(!active)) )} type="password" placeholder="Entre com sua senha" title="digite seu nome"/>
-                <S.Line isOn={active}></S.Line>
+                <S.SecondLine isOn={active}></S.SecondLine>
                 <S.ButtonBox>
                 <button>LOGAR</button>
                 </S.ButtonBox>
             </S.FormBox>
+                <S.RegisterBox>
+                    <p>Não tem uma conta?</p>
+                    <ul>
+                        <li>Cadastre-se</li>
+                    </ul>
+                </S.RegisterBox>
         </S.LoginBox>
        </S.MainBox>
         </>

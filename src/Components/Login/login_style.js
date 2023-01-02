@@ -9,6 +9,7 @@ export const MainBox = styled.main`
   align-items: center;
   justify-content: center;
   background-image: url(${background});
+  background-repeat: repeat-y;
   height: 100vh;
   background-size: 100%;
 `;
@@ -20,6 +21,7 @@ export const LoginBox = styled.section`
   height: 85vh;
   width: 31vw;
   background-color: #330461;
+  border: solid;
 `;
 export const LogoContainer = styled(MainBox)`
   background-image: none;
@@ -34,8 +36,8 @@ export const FormBox = styled.form`
   justify-content: space-evenly;
   width: 66%;
   color: #ccbcad;
-  /* border: solid; */
-  height: 40vh;
+  border: solid;
+  height: 38vh;
   label {
     position: relative;
     top: 0.5vh;
@@ -68,17 +70,20 @@ export const PasswordInput = styled(UserInput)`
 `;
 export const Line = styled.div`
   background-color: #ffff;
-  height: 1.8px;
-  transition: ease-in-out 0.6s;
+  height: 0.27vh;
+  transition: ease-in-out 0.8s;
   box-shadow: ${(props) =>
     props.isOn ? "none" : "inset #1976D2 30vw 0px 0px 0px"};
 `;
+export const SecondLine = styled(Line)`
+height: 0.30vh;
+`
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid;
-  height: 18vh;
+  border: solid red;
+  height: 16vh;
   button {
     width: 9vw;
     height: 5.6vh;
@@ -90,5 +95,18 @@ export const ButtonBox = styled.div`
     background-color: #30d1bc;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
 `;
+export const RegisterBox = styled.nav`
+border: solid;
+color: #F9FFFF;
+p{
+  font-size:1.3vw;
+}
+ul{
+  border:solid;
+  text-align: center;
+  list-style: none;
+}
+`
