@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { LoginBox, MainBox, LogoContainer, Logo, FormBox, UserInput, Line } from "../Login/login_style.js";
 import email from "../../Assets/email.png";
-import camera from "../../Assets/camera_foto.png"
+import camera from "../../Assets/camera_foto.png";
+import cpf from "../../Assets/cpf.png";
+import cadeado from "../../Assets/cadeado_senha.png";
+import endereco from "../../Assets/endereço.png"
+
 export const RegisterMainBox = styled(MainBox)`
 height: 134vh;
 background-size: cover;
@@ -31,10 +35,19 @@ background-image: url(${email});
 input:nth-child(8){
     background-image: url(${camera});
 }
-
+input:nth-child(11){
+    background-image: url(${cpf});
+}
+input:nth-child(14){
+    background-image: url(${endereco});
+}
+input:nth-child(17), input:nth-child(20){
+    background-image: url(${cadeado});
+}
 `
 export const RegisterInput = styled(UserInput)`
 /* border: solid; */
+background-size:7.40%;
 height:6vh;
 `
 export const RegisterLine = styled(Line)`
