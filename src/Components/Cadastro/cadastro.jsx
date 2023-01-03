@@ -15,18 +15,25 @@ export default function Cadastro() {
           <S.RegisterForm>
             <label>Nome*</label>
             <S.RegisterInput type="text" />
+            <S.RegisterLine></S.RegisterLine>
             <label>Usuário*</label>
             <S.RegisterInput type="text" />
+            <S.RegisterLine></S.RegisterLine>
             <label>Foto(url)</label>
             <S.RegisterInput type="text" />
+            <S.RegisterLine></S.RegisterLine>
             <label>CPF*</label>
             <S.RegisterInput type="text" />
+               <S.RegisterLine></S.RegisterLine>
             <label>Endereço*</label>
             <S.RegisterInput type="text" />
+               <S.RegisterLine></S.RegisterLine>
             <label>Senha*</label>
             <S.RegisterInput type="text" />
+               <S.RegisterLine></S.RegisterLine>
             <label>Confirmar Senha*</label>
             <S.RegisterInput type="text" />
+               <S.RegisterLine></S.RegisterLine>
           </S.RegisterForm>
         </S.RegisterBox>
       </S.RegisterMainBox>
