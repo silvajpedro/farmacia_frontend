@@ -27,7 +27,7 @@ const [Charge, setCharge] = useState(true)
                 <S.RegisterBox>
                     <p>Não tem uma conta?</p>
                     <ul>
-                        <li onMouseOver={()=>{setCharge(!Charge)}} onMouseLeave={()=>{setCharge(!Charge)}}>Cadastre-se</li>
+                       <li onMouseOver={()=>{setCharge(!Charge)}} onMouseLeave={()=>{setCharge(!Charge)}} > <S.Links to="/cadastro">Cadastre-se</S.Links></li>
                         <S.ThirdLine isOn={Charge}></S.ThirdLine>
                     </ul>
                 </S.RegisterBox>

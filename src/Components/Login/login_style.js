@@ -3,7 +3,7 @@ import background from "../../Assets/rainbow-vortex.png";
 import cadeado from "../../Assets/cadeado_senha.png";
 import usuario from "../../Assets/usuario.png";
 import { createGlobalStyle } from "styled-components";
-
+import { Link } from "react-router-dom";
 export const GlobalStyle = createGlobalStyle`
 *{
     margin: 0;
@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-`
+`;
 export const MainBox = styled.main`
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
   display: flex;
@@ -83,13 +83,12 @@ export const Line = styled.div`
     props.isOn ? "none" : "inset #1976D2 30vw 0px 0px 0px"};
 `;
 export const SecondLine = styled(Line)`
-height: 0.30vh;
-`
+  height: 0.3vh;
+`;
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: solid red; */
   height: 16vh;
   button {
     width: 9vw;
@@ -106,37 +105,35 @@ export const ButtonBox = styled.div`
   }
 `;
 export const RegisterBox = styled.nav`
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-font-family: "Quicksand", sans-serif;
-text-align: center;
-/* border: solid; */
-color: #F9FFFF;
-width: 14vw;
-height: 14vh;
-p{
-  font-size:1.2vw;
-  font-weight: 500;
-}
-ul{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
-  list-style: none;
-  /* border:solid; */
-}
-li{
+  color: #f9ffff;
+  width: 14vw;
+  height: 14vh;
+  p {
+    font-size: 1.2vw;
+    font-weight: 500;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+`;
+export const Links = styled(Link)`
   font-weight: 900;
   cursor: pointer;
-}
-`
+  text-decoration: none;
+  color: #f9ffff;
+`;
 export const ThirdLine = styled(Line)`
-box-shadow: none;
-width: ${(props) =>
-    props.isOn ? "0vw" : "7vw"};
-height: 0.3vh;
-transition:0.6s;
-`
+  box-shadow: none;
+  width: ${(props) => (props.isOn ? "0vw" : "7vw")};
+  height: 0.3vh;
+  transition: 0.6s;
+`;
