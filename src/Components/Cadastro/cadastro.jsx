@@ -129,6 +129,10 @@ export default function Cadastro() {
             />
             <S.RegisterLine isOn={SeventhLine}></S.RegisterLine>
           </S.RegisterForm>
+          <S.ButtonsBox>
+            <button>CADASTRAR</button>
+            <button>CANCELAR</button>
+          </S.ButtonsBox>
         </S.RegisterBox>
       </S.RegisterMainBox>
     </>

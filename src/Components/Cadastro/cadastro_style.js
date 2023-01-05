@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LoginBox, MainBox, LogoContainer, Logo, FormBox, UserInput, Line } from "../Login/login_style.js";
+import { LoginBox, MainBox, LogoContainer, Logo, FormBox, UserInput, Line, ButtonBox } from "../Login/login_style.js";
 import email from "../../Assets/email.png";
 import camera from "../../Assets/camera_foto.png";
 import cpf from "../../Assets/cpf.png";
@@ -32,6 +32,7 @@ export const RegisterBox = styled(LoginBox)`
 background-color: #1D0A33;
 height: 128vh;
 width:33vw ;
+
 `
 export const RegisterLogoContainer = styled(LogoContainer)`
 height: 30vh;
@@ -43,7 +44,6 @@ export const RegisterLogo = styled(Logo)`
 export const RegisterForm = styled(FormBox)`
 position: relative;
 top:0.5vh;
-/* border:solid; */
 height:76vh;
 width:78%;
 label{
@@ -64,6 +64,19 @@ export const RegisterLine = styled(Line)`
 export const InputBox = styled.div`
 display: flex;
 flex-direction: column;
-/* border: solid; */
 height: 10vh;
+`
+export const ButtonsBox = styled(ButtonBox)`
+justify-content: space-around;
+height: 20vh;
+width:25vw;
+button:nth-child(1){
+    font-size: 1.08vw;
+}
+button:nth-child(2){
+background-color: #FF0000;
+color: #ffff;
+width: 7.9vw;
+font-size: 1.08vw;
+}
 `
