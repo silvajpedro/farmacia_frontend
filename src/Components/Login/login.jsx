@@ -7,6 +7,8 @@ const [On, setOn] = useState(true);
 const [Active, setActive] = useState(true);
 const [Charge, setCharge] = useState(true);
 const [hidePassword, setHidePassword] = useState("password");
+// const [userLogin, setUserLogin] = useState("")
+const [userPassword, setUserPassword] = useState("")
     return(
         <>
         <S.GlobalStyle/>
@@ -20,9 +22,9 @@ const [hidePassword, setHidePassword] = useState("password");
                 <S.UserInput onClick={()=>( (setOn(!On)) (setActive(true)))} type="text" placeholder="Entre com seu usuário" title="digite seu nome"/>
                 <S.Line  isOn={On}></S.Line>
                 <label>Senha</label>
-                <S.PasswordInput onClick={()=>( (setOn(true)) (setActive(!Active)) )} type={hidePassword} placeholder="Entre com sua senha" title="digite seu nome"/>
+                <S.PasswordInput value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}} onClick={()=>( (setOn(true)) (setActive(!Active)) )} type={hidePassword} placeholder="Entre com sua senha" title="digite seu nome"/>
                 <S.SecondLine isOn={Active}></S.SecondLine>
-                <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>
+            {userPassword.length > 3 && <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>}
                 <S.ButtonBox>
                 <button>LOGAR</button>
                 </S.ButtonBox>

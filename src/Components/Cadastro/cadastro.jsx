@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./cadastro_style.js";
 import logo from "../../Assets/logo.png";
 import { GlobalStyle } from "../Login/login_style.js";
-import Password from "../../Assets/ver_senha2.png"
+import Password from "../../Assets/ver_senha2.png";
 export default function Cadastro() {
   const [FirstLine, setFirstLine] = useState(true);
   const [SecondLine, setSecondLine] = useState(true);
@@ -13,19 +13,21 @@ export default function Cadastro() {
   const [SeventhLine, setSeventhLine] = useState(true);
   const [hidePassword, setHidePassword] = useState("password");
   const [SecondHidePassword, setSecondHidePassword] = useState("password");
+  const [RegisterPassword, setRegisterPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
   return (
     <>
       <GlobalStyle />
       <S.RegisterMainBox>
         <S.RegisterBox
           onMouseLeave={() => {
-              setFirstLine(true)
-              setSecondLine(true)
-              setThirdLine(true)
-              setFourthLine(true)
-              setFifthLine(true)
-              setSixthLine(true)
-              setSeventhLine(true)
+            setFirstLine(true);
+            setSecondLine(true);
+            setThirdLine(true);
+            setFourthLine(true);
+            setFifthLine(true);
+            setSixthLine(true);
+            setSeventhLine(true);
           }}
         >
           <S.RegisterLogoContainer>
@@ -34,108 +36,138 @@ export default function Cadastro() {
           <S.RegisterForm>
             <label>Nome*</label>
             <S.RegisterInput
-              onClick={() =>{
-              setFirstLine(!FirstLine)
-              setSecondLine(true)
-              setThirdLine(true)
-              setFourthLine(true)
-              setFifthLine(true)
-              setSixthLine(true)
-              setSeventhLine(true)
-                }}
+              onClick={() => {
+                setFirstLine(!FirstLine);
+                setSecondLine(true);
+                setThirdLine(true);
+                setFourthLine(true);
+                setFifthLine(true);
+                setSixthLine(true);
+                setSeventhLine(true);
+              }}
               type="text"
             />
             <S.RegisterLine isOn={FirstLine}></S.RegisterLine>
             <label>Usuário*</label>
             <S.RegisterInput
-              onClick={() =>{
-                setFirstLine(true)
-                setSecondLine(!SecondLine)
-                setThirdLine(true)
-                setFourthLine(true)
-                setFifthLine(true)
-                setSixthLine(true)
-                setSeventhLine(true)
-                  }}
+              onClick={() => {
+                setFirstLine(true);
+                setSecondLine(!SecondLine);
+                setThirdLine(true);
+                setFourthLine(true);
+                setFifthLine(true);
+                setSixthLine(true);
+                setSeventhLine(true);
+              }}
               type="text"
             />
             <S.RegisterLine isOn={SecondLine}></S.RegisterLine>
             <label>Foto(url)</label>
             <S.RegisterInput
-              onClick={() =>{
-                setFirstLine(true)
-                setSecondLine(true)
-                setThirdLine(!ThirdLine)
-                setFourthLine(true)
-                setFifthLine(true)
-                setSixthLine(true)
-                setSeventhLine(true)
-                  }}
+              onClick={() => {
+                setFirstLine(true);
+                setSecondLine(true);
+                setThirdLine(!ThirdLine);
+                setFourthLine(true);
+                setFifthLine(true);
+                setSixthLine(true);
+                setSeventhLine(true);
+              }}
               type="text"
             />
             <S.RegisterLine isOn={ThirdLine}></S.RegisterLine>
             <label>CPF*</label>
             <S.RegisterInput
-              onClick={() =>{
-                  setFirstLine(true)
-                  setSecondLine(true)
-                  setThirdLine(true)
-                  setFourthLine(!FourthLine)
-                  setFifthLine(true)
-                  setSixthLine(true)
-                  setSeventhLine(true)
-                    }}
+              onClick={() => {
+                setFirstLine(true);
+                setSecondLine(true);
+                setThirdLine(true);
+                setFourthLine(!FourthLine);
+                setFifthLine(true);
+                setSixthLine(true);
+                setSeventhLine(true);
+              }}
               type="text"
             />
             <S.RegisterLine isOn={FourthLine}></S.RegisterLine>
             <label>Endereço*</label>
             <S.RegisterInput
-              onClick={() =>{
-                setFirstLine(true)
-                setSecondLine(true)
-                setThirdLine(true)
-                setFourthLine(true)
-                setFifthLine(!FifthLine)
-                setSixthLine(true)
-                setSeventhLine(true)
-                  }}
+              onClick={() => {
+                setFirstLine(true);
+                setSecondLine(true);
+                setThirdLine(true);
+                setFourthLine(true);
+                setFifthLine(!FifthLine);
+                setSixthLine(true);
+                setSeventhLine(true);
+              }}
               type="text"
             />
             <S.RegisterLine isOn={FifthLine}></S.RegisterLine>
             <label>Senha*</label>
             <S.RegisterInput
-              onClick={() =>{
-                setFirstLine(true)
-                setSecondLine(true)
-                setThirdLine(true)
-                setFourthLine(true)
-                setFifthLine(true)
-                setSixthLine(!SixthLine)
-                setSeventhLine(true)
+              value={RegisterPassword}
+              onChange={(e) => {
+                setRegisterPassword(e.target.value);
+              }}
+              onClick={() => {
+                setFirstLine(true);
+                setSecondLine(true);
+                setThirdLine(true);
+                setFourthLine(true);
+                setFifthLine(true);
+                setSixthLine(!SixthLine);
+                setSeventhLine(true);
               }}
               type={hidePassword}
             />
             <S.RegisterLine isOn={SixthLine}></S.RegisterLine>
-            <S.SeePasswordRegister src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>
+            {RegisterPassword.length > 3 && (
+              <S.SeePasswordRegister
+                src={Password}
+                alt=""
+                onClick={() =>
+                  hidePassword !== "text"
+                    ? setHidePassword("text")
+                    : setHidePassword("password")
+                }
+              />
+            )}
             <label>Confirmar Senha*</label>
             <S.RegisterInput
-              onClick={() =>{
-                setFirstLine(true)
-                setSecondLine(true)
-                setThirdLine(true)
-                setFourthLine(true)
-                setFifthLine(true)
-                setSixthLine(true)
-                setSeventhLine(!SeventhLine)
+              value={ConfirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+              }}
+              onClick={() => {
+                setFirstLine(true);
+                setSecondLine(true);
+                setThirdLine(true);
+                setFourthLine(true);
+                setFifthLine(true);
+                setSixthLine(true);
+                setSeventhLine(!SeventhLine);
               }}
               type={SecondHidePassword}
             />
             <S.RegisterLine isOn={SeventhLine}></S.RegisterLine>
-            <S.SecondSeePasswordRegister src={Password} alt="" onClick={()=>(SecondHidePassword !== "text" ? setSecondHidePassword("text"):setSecondHidePassword("password"))}/>
+            {ConfirmPassword.length > 3 && (
+              <S.SecondSeePasswordRegister
+                src={Password}
+                alt=""
+                onClick={() =>
+                  SecondHidePassword !== "text"
+                    ? setSecondHidePassword("text")
+                    : setSecondHidePassword("password")
+                }
+              />
+            )}
           </S.RegisterForm>
           <S.ButtonsBox>
             <button>CADASTRAR</button>
-            <button><S.LinkBack to="/">CANCELAR</S.LinkBack></button>
+            <button>
+              <S.LinkBack to="/">CANCELAR</S.LinkBack>
+            </button>
           </S.ButtonsBox>
         </S.RegisterBox>
       </S.RegisterMainBox>

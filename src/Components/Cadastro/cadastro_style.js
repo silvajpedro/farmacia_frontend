@@ -22,7 +22,7 @@ input:nth-child(11){
 input:nth-child(14){
     background-image: url(${endereco});
 }
-input:nth-child(17), input:nth-child(20){
+input:nth-child(17), input:nth-child(20), input:nth-child(21){
     background-image: url(${cadeado});
 }
 div:nth-child(6), div:nth-child(9){
@@ -88,6 +88,5 @@ font-size: 1.12vw;
 }
 `
 export const LinkBack = styled(Links)`
-text-decoration: none;
-color: #ffff;
+border: solid transparent;
 `
