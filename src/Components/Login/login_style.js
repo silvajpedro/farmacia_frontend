@@ -132,6 +132,8 @@ export const RegisterBox = styled.nav`
     justify-content: center;
     align-items: center;
     list-style: none;
+    margin: none;
+    padding: none;
   }
 `;
 export const Links = styled(Link)`
