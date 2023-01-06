@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { LoginBox, MainBox, LogoContainer, Logo, FormBox, UserInput, Line, ButtonBox } from "../Login/login_style.js";
+import { LoginBox, MainBox, LogoContainer, Logo, FormBox, UserInput, Line, ButtonBox, SeePassword,Links } from "../Login/login_style.js";
 import email from "../../Assets/email.png";
 import camera from "../../Assets/camera_foto.png";
 import cpf from "../../Assets/cpf.png";
 import cadeado from "../../Assets/cadeado_senha.png";
-import endereco from "../../Assets/endereço.png"
+import endereco from "../../Assets/endereço.png";
+
 
 export const RegisterMainBox = styled(MainBox)`
 height: 145vh;
@@ -52,7 +53,6 @@ label{
 }
 `
 export const RegisterInput = styled(UserInput)`
-/* border: solid red; */
 background-size:7.40%;
 height:6vh;
 background-position: 0 0.9vh;
@@ -60,6 +60,13 @@ padding-top: 0.2vh;
 padding-left:2.4vw;
 `
 export const RegisterLine = styled(Line)`
+`
+export const SeePasswordRegister = styled(SeePassword)`
+bottom:10vh;
+right:1vw;
+`;
+export const SecondSeePasswordRegister = styled(SeePasswordRegister)`
+bottom:-1vh;
 `
 export const InputBox = styled.div`
 display: flex;
@@ -71,12 +78,16 @@ justify-content: space-around;
 height: 20vh;
 width:25vw;
 button:nth-child(1){
-    font-size: 1.08vw;
+    font-size: 1.12vw;
 }
 button:nth-child(2){
 background-color: #FF0000;
 color: #ffff;
 width: 7.9vw;
-font-size: 1.08vw;
+font-size: 1.12vw;
 }
+`
+export const LinkBack = styled(Links)`
+text-decoration: none;
+color: #ffff;
 `

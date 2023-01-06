@@ -23,6 +23,7 @@ export const MainBox = styled.main`
   background-size: 100%;
 `;
 export const LoginBox = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,6 +85,14 @@ export const Line = styled.div`
 `;
 export const SecondLine = styled(Line)`
   height: 0.3vh;
+`;
+export const SeePassword = styled.img`
+  position: absolute;
+  width: 2.3vw;
+  right: 5.8vw;
+  cursor: pointer;
+  margin-bottom:1.4vh;
+
 `;
 export const ButtonBox = styled.div`
   display: flex;

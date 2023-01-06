@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./cadastro_style.js";
 import logo from "../../Assets/logo.png";
 import { GlobalStyle } from "../Login/login_style.js";
-
+import Password from "../../Assets/ver_senha2.png"
 export default function Cadastro() {
   const [FirstLine, setFirstLine] = useState(true);
   const [SecondLine, setSecondLine] = useState(true);
@@ -11,6 +11,8 @@ export default function Cadastro() {
   const [FifthLine, setFifthLine] = useState(true);
   const [SixthLine, setSixthLine] = useState(true);
   const [SeventhLine, setSeventhLine] = useState(true);
+  const [hidePassword, setHidePassword] = useState("password");
+  const [SecondHidePassword, setSecondHidePassword] = useState("password");
   return (
     <>
       <GlobalStyle />
@@ -111,9 +113,10 @@ export default function Cadastro() {
                 setSixthLine(!SixthLine)
                 setSeventhLine(true)
               }}
-              type="text"
+              type={hidePassword}
             />
             <S.RegisterLine isOn={SixthLine}></S.RegisterLine>
+            <S.SeePasswordRegister src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>
             <label>Confirmar Senha*</label>
             <S.RegisterInput
               onClick={() =>{
@@ -125,13 +128,14 @@ export default function Cadastro() {
                 setSixthLine(true)
                 setSeventhLine(!SeventhLine)
               }}
-              type="text"
+              type={SecondHidePassword}
             />
             <S.RegisterLine isOn={SeventhLine}></S.RegisterLine>
+            <S.SecondSeePasswordRegister src={Password} alt="" onClick={()=>(SecondHidePassword !== "text" ? setSecondHidePassword("text"):setSecondHidePassword("password"))}/>
           </S.RegisterForm>
           <S.ButtonsBox>
             <button>CADASTRAR</button>
-            <button>CANCELAR</button>
+            <button><S.LinkBack to="/">CANCELAR</S.LinkBack></button>
           </S.ButtonsBox>
         </S.RegisterBox>
       </S.RegisterMainBox>
