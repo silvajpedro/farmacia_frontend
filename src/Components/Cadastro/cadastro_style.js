@@ -26,7 +26,7 @@ input:nth-child(17), input:nth-child(20), input:nth-child(21){
     background-image: url(${cadeado});
 }
 div:nth-child(6), div:nth-child(9){
-    height: 0.3vh;
+    height: 0.33vh;
 }
 `
 export const RegisterBox = styled(LoginBox)`
@@ -45,7 +45,7 @@ export const RegisterLogo = styled(Logo)`
 export const RegisterForm = styled(FormBox)`
 position: relative;
 top:0.5vh;
-height:76vh;
+height:96vh;
 width:78%;
 label{
     top:1.4vh;
@@ -62,11 +62,11 @@ padding-left:2.4vw;
 export const RegisterLine = styled(Line)`
 `
 export const SeePasswordRegister = styled(SeePassword)`
-bottom:10vh;
+bottom:29.9vh;
 right:1vw;
 `;
 export const SecondSeePasswordRegister = styled(SeePasswordRegister)`
-bottom:-1vh;
+bottom:19.1vh;
 `
 export const InputBox = styled.div`
 display: flex;
@@ -88,5 +88,6 @@ font-size: 1.12vw;
 }
 `
 export const LinkBack = styled(Links)`
-border: solid transparent;
+border: solid transparent ;
+padding:10px;
 `

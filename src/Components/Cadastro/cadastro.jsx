@@ -13,7 +13,12 @@ export default function Cadastro() {
   const [SeventhLine, setSeventhLine] = useState(true);
   const [hidePassword, setHidePassword] = useState("password");
   const [SecondHidePassword, setSecondHidePassword] = useState("password");
-  const [RegisterPassword, setRegisterPassword] = useState("");
+  const [UserName, setUserName] = useState("");
+  const [UserEmail, setUserEmail] = useState("");
+  const [UserPhoto, setUserPhoto] = useState("");
+  const [UserDocument, setUserDocument] = useState("");
+  const [UserAddress, setUserAddress] = useState("");
+  const [UserPassword, setUserPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
   return (
     <>
@@ -33,7 +38,7 @@ export default function Cadastro() {
           <S.RegisterLogoContainer>
             <S.RegisterLogo src={logo} alt="" />
           </S.RegisterLogoContainer>
-          <S.RegisterForm>
+          <S.RegisterForm onSubmit={(e)=>{ e.preventDefault()}}>
             <label>Nome*</label>
             <S.RegisterInput
               onClick={() => {
@@ -45,8 +50,8 @@ export default function Cadastro() {
                 setSixthLine(true);
                 setSeventhLine(true);
               }}
-              type="text"
-            />
+              type="text" required onChange={(e)=>{setUserEmail(e.target.value)}} value={UserEmail} />
+
             <S.RegisterLine isOn={FirstLine}></S.RegisterLine>
             <label>Usuário*</label>
             <S.RegisterInput
@@ -59,8 +64,9 @@ export default function Cadastro() {
                 setSixthLine(true);
                 setSeventhLine(true);
               }}
-              type="text"
-            />
+              type="email" required onChange={(e)=>{setUserName(e.target.value)}} value={UserName}
+              />
+
             <S.RegisterLine isOn={SecondLine}></S.RegisterLine>
             <label>Foto(url)</label>
             <S.RegisterInput
@@ -73,8 +79,8 @@ export default function Cadastro() {
                 setSixthLine(true);
                 setSeventhLine(true);
               }}
-              type="text"
-            />
+              type="text" required onChange={(e)=>{setUserPhoto(e.target.value)}} value={UserPhoto} />
+
             <S.RegisterLine isOn={ThirdLine}></S.RegisterLine>
             <label>CPF*</label>
             <S.RegisterInput
@@ -87,7 +93,7 @@ export default function Cadastro() {
                 setSixthLine(true);
                 setSeventhLine(true);
               }}
-              type="text"
+              type="text" required onChange={(e)=>{setUserDocument(e.target.value)}} value={UserDocument} 
             />
             <S.RegisterLine isOn={FourthLine}></S.RegisterLine>
             <label>Endereço*</label>
@@ -101,15 +107,11 @@ export default function Cadastro() {
                 setSixthLine(true);
                 setSeventhLine(true);
               }}
-              type="text"
-            />
+              type="text" required onChange={(e)=>{setUserAddress(e.target.value)}} value={UserAddress}
+            /> 
             <S.RegisterLine isOn={FifthLine}></S.RegisterLine>
             <label>Senha*</label>
             <S.RegisterInput
-              value={RegisterPassword}
-              onChange={(e) => {
-                setRegisterPassword(e.target.value);
-              }}
               onClick={() => {
                 setFirstLine(true);
                 setSecondLine(true);
@@ -119,26 +121,12 @@ export default function Cadastro() {
                 setSixthLine(!SixthLine);
                 setSeventhLine(true);
               }}
-              type={hidePassword}
+              type={hidePassword} required onChange={(e)=>{setUserPassword(e.target.value)}} value={UserPassword}
             />
             <S.RegisterLine isOn={SixthLine}></S.RegisterLine>
-            {RegisterPassword.length > 3 && (
-              <S.SeePasswordRegister
-                src={Password}
-                alt=""
-                onClick={() =>
-                  hidePassword !== "text"
-                    ? setHidePassword("text")
-                    : setHidePassword("password")
-                }
-              />
-            )}
+            {UserPassword.length > 3 && <S.SeePasswordRegister src={Password} alt="" onClick={() => { hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password")}} />}
             <label>Confirmar Senha*</label>
-            <S.RegisterInput
-              value={ConfirmPassword}
-              onChange={(e) => {
-                setConfirmPassword(e.target.value);
-              }}
+            <S.RegisterInput 
               onClick={() => {
                 setFirstLine(true);
                 setSecondLine(true);
@@ -147,28 +135,36 @@ export default function Cadastro() {
                 setFifthLine(true);
                 setSixthLine(true);
                 setSeventhLine(!SeventhLine);
-              }}
-              type={SecondHidePassword}
-            />
-            <S.RegisterLine isOn={SeventhLine}></S.RegisterLine>
-            {ConfirmPassword.length > 3 && (
-              <S.SecondSeePasswordRegister
-                src={Password}
-                alt=""
-                onClick={() =>
-                  SecondHidePassword !== "text"
-                    ? setSecondHidePassword("text")
-                    : setSecondHidePassword("password")
-                }
+              }} type={SecondHidePassword} required onChange={(e) => { setConfirmPassword(e.target.value)}} value={ConfirmPassword}
               />
-            )}
-          </S.RegisterForm>
+
+            <S.RegisterLine isOn={SeventhLine}></S.RegisterLine>
+            {ConfirmPassword.length > 3 && <S.SecondSeePasswordRegister src={Password} alt="" onClick={() =>{ SecondHidePassword !== "text" ? setSecondHidePassword("text"):setSecondHidePassword("password")}}/> }
           <S.ButtonsBox>
-            <button>CADASTRAR</button>
+            <button onClick={()=>{
+              localStorage.setItem("nome", UserName);
+              localStorage.setItem("email", UserEmail);
+              localStorage.setItem("foto", UserPhoto);
+              localStorage.setItem("cpf", UserDocument);
+              localStorage.setItem("endereco", UserAddress);
+              localStorage.setItem("senha", UserPassword);
+              localStorage.setItem("confirmsenha", ConfirmPassword);
+              setTimeout(()=>{
+                setUserName("");
+                setUserEmail("");
+                setUserPhoto("");
+                setUserDocument("");
+                setUserAddress("");
+                setUserPassword("");
+                setConfirmPassword("");
+                alert("Cadastro Concluído");
+              },500)
+            }}>CADASTRAR</button>
             <button>
               <S.LinkBack to="/">CANCELAR</S.LinkBack>
             </button>
           </S.ButtonsBox>
+          </S.RegisterForm>
         </S.RegisterBox>
       </S.RegisterMainBox>
     </>
