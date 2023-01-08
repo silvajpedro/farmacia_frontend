@@ -21,7 +21,7 @@ export default function Cadastro() {
   const [UserAddress, setUserAddress] = useState("");
   const [UserPassword, setUserPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
-  const [ConfirmRegister, setConfirmRegister] = useState(true);
+  const [ConfirmRegister, setConfirmRegister] = useState(false);
   const UploadInfos = () =>{
     localStorage.setItem("nome", UserName);
     localStorage.setItem("email", UserEmail);
@@ -38,7 +38,7 @@ export default function Cadastro() {
       setUserAddress("");
       setUserPassword("");
       setConfirmPassword("");
-      alert("Cadastro Concluído");
+      setConfirmRegister(!ConfirmRegister)
     },500)
   }
   return (
