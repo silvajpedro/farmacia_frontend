@@ -7,8 +7,16 @@ const [On, setOn] = useState(true);
 const [Active, setActive] = useState(true);
 const [Charge, setCharge] = useState(true);
 const [hidePassword, setHidePassword] = useState("password");
-// const [userLogin, setUserLogin] = useState("")
-const [userPassword, setUserPassword] = useState("")
+const [userLogin, setUserLogin] = useState("");
+const [userPassword, setUserPassword] = useState("");
+
+const WarningLogin = () =>{
+    if(userLogin != localStorage.getItem("nome")){
+    alert("Dados de usuário inconsistentes");
+} else if(userPassword != localStorage.getItem("senha")){
+    alert("Dados de senha incorretos");
+}
+}
     return(
         <>
         <S.GlobalStyle/>
@@ -26,7 +34,7 @@ const [userPassword, setUserPassword] = useState("")
                 <S.SecondLine isOn={Active}></S.SecondLine>
             {userPassword.length > 3 && <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>}
                 <S.ButtonBox>
-                <button>LOGAR</button>
+                <button onClick={()=>{ userLogin != localStorage.getItem("nome") || userPassword != localStorage.getItem("senha") ? WarningLogin()  : alert("sucess") }}>LOGAR</button>
                 </S.ButtonBox>
             </S.FormBox>
                 <S.RegisterBox>

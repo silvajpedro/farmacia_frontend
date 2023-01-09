@@ -42,40 +42,40 @@ export default function Cadastro() {
       setUserPassword("");
       setConfirmPassword("");
       setConfirmRegister(!ConfirmRegister)
-      document.body.getElementsByTagName("div")[1].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[1].style.boxShadow = " inset #ffff  30vw 0px 0px 0px " 
       document.body.getElementsByTagName("label")[0].style.color = " #ccbcad"
-      document.body.getElementsByTagName("div")[2].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[2].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" 
       document.body.getElementsByTagName("label")[1].style.color = " #ccbcad"
-      document.body.getElementsByTagName("div")[3].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[3].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" 
       document.body.getElementsByTagName("label")[2].style.color = " #ccbcad"
-      document.body.getElementsByTagName("div")[4].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[4].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" 
       document.body.getElementsByTagName("label")[3].style.color = " #ccbcad"
-      document.body.getElementsByTagName("div")[5].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[5].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" 
       document.body.getElementsByTagName("label")[4].style.color = " #ccbcad"
-      document.body.getElementsByTagName("div")[6].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[6].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" 
       document.body.getElementsByTagName("label")[5].style.color = " #ccbcad"
-      document.body.getElementsByTagName("div")[7].style.backgroundColor = "#ffff" 
+      document.body.getElementsByTagName("div")[7].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" 
       document.body.getElementsByTagName("label")[6].style.color = " #ccbcad"
     },500)
   }
   const WarningInfo = () =>{
     if(UserName === ""){
       alert("Preencha seu nome de usuário corretamente");
-      (document.body.getElementsByTagName("div")[1].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[0].style.color = "red");
+      (document.body.getElementsByTagName("div")[1].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[0].style.color = "red");
     } else if(UserEmail === ""){
       alert("Preencha seu email corretamente");
-      (document.body.getElementsByTagName("div")[2].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[1].style.color = "red");
+      (document.body.getElementsByTagName("div")[2].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[1].style.color = "red");
     } else if(UserPhoto ===""){
       alert("Preencha seu email corretamente");
-      (document.body.getElementsByTagName("div")[3].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[2].style.color = "red");
+      (document.body.getElementsByTagName("div")[3].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[2].style.color = "red");
     } else if(UserDocument === ""){
-      (document.body.getElementsByTagName("div")[4].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[3].style.color = "red");
+      (document.body.getElementsByTagName("div")[4].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[3].style.color = "red");
     } else if(UserAddress === ""){
-      (document.body.getElementsByTagName("div")[5].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[4].style.color = "red");
+      (document.body.getElementsByTagName("div")[5].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[4].style.color = "red");
     } else if(UserPassword === ""){
-      (document.body.getElementsByTagName("div")[6].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[5].style.color = "red");
+      (document.body.getElementsByTagName("div")[6].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[5].style.color = "red");
     } else if(ConfirmPassword === ""){
-      (document.body.getElementsByTagName("div")[7].style.backgroundColor = "red") (document.body.getElementsByTagName("label")[6].style.color = "red");
+      (document.body.getElementsByTagName("div")[7].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[6].style.color = "red");
     }
   }
   return (
