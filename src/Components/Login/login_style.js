@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 `;
 export const MainBox = styled.main`
+
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
   display: flex;
   align-items: center;
@@ -22,8 +23,13 @@ export const MainBox = styled.main`
   height: 100vh;
   background-size: 100%;
 `;
+export const LoadingImage = styled.img`
+position: absolute;
+width: 9vw;
+z-index: 10;
+`
 export const LoginBox = styled.section`
-  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,3 +154,12 @@ export const ThirdLine = styled(Line)`
   height: 0.3vh;
   transition: 0.6s;
 `;
+export const WhiteLoading = styled.div`
+position:absolute;
+top: 0vh;
+background-color:  #ccbcad;
+height:100vh ;
+width: 100%;
+opacity: 0.5;
+/* z-index:1; */
+`
