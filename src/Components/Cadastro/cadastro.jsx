@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./cadastro_style.js";
 import logo from "../../Assets/logo.png";
 import X from "../../Assets/X.png"
 import { GlobalStyle } from "../Login/login_style.js";
 import Password from "../../Assets/ver_senha2.png";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 
 export default function Cadastro() {
+  
+  // const nodeList = document.querySelectorAll("div");
+  // console.log(nodeList)
+  // const elements = Array.from(nodeList)
+  // console.log(elements)
+  
   let navigate = useNavigate();
-  const [FirstLine, setFirstLine] = useState(true);
-  const [SecondLine, setSecondLine] = useState(true);
-  const [ThirdLine, setThirdLine] = useState(true);
-  const [FourthLine, setFourthLine] = useState(true);
-  const [FifthLine, setFifthLine] = useState(true);
-  const [SixthLine, setSixthLine] = useState(true);
-  const [SeventhLine, setSeventhLine] = useState(true);
+  // const [isTrue,setIsTrue] = useState("")
+  const [FirstLine, setFirstLine] = useState("");
+  const [SecondLine, setSecondLine] = useState("");
+  const [ThirdLine, setThirdLine] = useState("");
+  const [FourthLine, setFourthLine] = useState("");
+  const [FifthLine, setFifthLine] = useState("");
+  const [SixthLine, setSixthLine] = useState("");
+  const [SeventhLine, setSeventhLine] = useState("");
   const [hidePassword, setHidePassword] = useState("password");
   const [SecondHidePassword, setSecondHidePassword] = useState("password");
   const [UserName, setUserName] = useState("");
@@ -25,6 +33,7 @@ export default function Cadastro() {
   const [UserPassword, setUserPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [ConfirmRegister, setConfirmRegister] = useState(false);
+  
   const UploadInfos = () =>{
     localStorage.setItem("nome", UserName);
     localStorage.setItem("email", UserEmail);
@@ -42,42 +51,26 @@ export default function Cadastro() {
       setUserPassword("");
       setConfirmPassword("");
       setConfirmRegister(!ConfirmRegister)
-      document.body.getElementsByTagName("div")[1].style.boxShadow = " inset #ffff  30vw 0px 0px 0px "; 
-      document.body.getElementsByTagName("label")[0].style.color = " #ccbcad";
-      document.body.getElementsByTagName("div")[2].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" ;
-      document.body.getElementsByTagName("label")[1].style.color = " #ccbcad";
-      document.body.getElementsByTagName("div")[3].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" ;
-      document.body.getElementsByTagName("label")[2].style.color = " #ccbcad";
-      document.body.getElementsByTagName("div")[4].style.boxShadow = " inset #ffff  30vw 0px 0px 0px";
-      document.body.getElementsByTagName("label")[3].style.color = " #ccbcad";
-      document.body.getElementsByTagName("div")[5].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" ;
-      document.body.getElementsByTagName("label")[4].style.color = " #ccbcad";
-      document.body.getElementsByTagName("div")[6].style.boxShadow = " inset #ffff  30vw 0px 0px 0px" ;
-      document.body.getElementsByTagName("label")[5].style.color = " #ccbcad";
-      document.body.getElementsByTagName("div")[7].style.boxShadow = " inset #ffff  30vw 0px 0px 0px"; 
-      document.body.getElementsByTagName("label")[6].style.color = " #ccbcad";
     },500)
   }
   const WarningInfo = () =>{
     if(UserName === ""){
-      alert("Preencha seu nome de usuário corretamente");
-      (document.body.getElementsByTagName("div")[1].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[0].style.color = "red");
+      setFirstLine("danger")
     } else if(UserEmail === ""){
-      alert("Preencha seu email corretamente");
-      (document.body.getElementsByTagName("div")[2].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[1].style.color = "red");
+      setSecondLine("danger")
     } else if(UserPhoto ===""){
-      alert("Preencha seu email corretamente");
-      (document.body.getElementsByTagName("div")[3].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[2].style.color = "red");
+      setThirdLine("danger")
     } else if(UserDocument === ""){
-      (document.body.getElementsByTagName("div")[4].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[3].style.color = "red");
+      setFourthLine("danger")
     } else if(UserAddress === ""){
-      (document.body.getElementsByTagName("div")[5].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[4].style.color = "red");
+      setFifthLine("danger")
     } else if(UserPassword === ""){
-      (document.body.getElementsByTagName("div")[6].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[5].style.color = "red");
+      setSixthLine("danger")
     } else if(ConfirmPassword === ""){
-      (document.body.getElementsByTagName("div")[7].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[6].style.color = "red");
+      setSeventhLine("danger")
     }
   }
+
   return (
     <>
       <GlobalStyle />
@@ -94,113 +87,113 @@ export default function Cadastro() {
             setFourthLine(true);
             setFifthLine(true);
             setSixthLine(true);
-            setSeventhLine(true);
+            setSeventhLine(true); 
           }}
           >
           <S.RegisterLogoContainer>
             <S.RegisterLogo src={logo} alt="" />
           </S.RegisterLogoContainer>
           <S.RegisterForm onSubmit={(e)=>{ e.preventDefault()}}>
-            <label>Nome*</label>
-            <S.RegisterInput
+            <S.Label isTrue={FirstLine != "danger"}>Nome*</S.Label>
+          <S.RegisterInput
               onClick={() => {
-                setFirstLine(!FirstLine);
-                setSecondLine(true);
-                setThirdLine(true);
-                setFourthLine(true);
-                setFifthLine(true);
-                setSixthLine(true);
-                setSeventhLine(true);
+                setFirstLine("primary");
+                setSecondLine("");
+                setThirdLine("");
+                setFourthLine("");
+                setFifthLine("");
+                setSixthLine("");
+                setSeventhLine("");
               }}
               type="text" required onChange={(e)=>{setUserName(e.target.value)}} value={UserName} />
 
-            <S.RegisterLine isOn={FirstLine}></S.RegisterLine>
-            <label>Usuário*</label>
+            <S.RegisterLine  boxShadow={FirstLine}></S.RegisterLine>
+            <S.Label isTrue={SecondLine != "danger"}>Usuário*</S.Label>
             <S.RegisterInput
               onClick={() => {
-                setFirstLine(true);
-                setSecondLine(!SecondLine);
-                setThirdLine(true);
-                setFourthLine(true);
-                setFifthLine(true);
-                setSixthLine(true);
-                setSeventhLine(true);
+                setFirstLine("");
+                setSecondLine("primary");
+                setThirdLine("");
+                setFourthLine("");
+                setFifthLine("");
+                setSixthLine("");
+                setSeventhLine("");
               }}
               type="email" required onChange={(e)=>{setUserEmail(e.target.value)}} value={UserEmail}
               />
 
-            <S.RegisterLine isOn={SecondLine}></S.RegisterLine>
-            <label>Foto(url)*</label>
+            <S.RegisterLine  boxShadow={SecondLine}></S.RegisterLine>
+            <S.Label  isTrue={ThirdLine != "danger"}>Foto(url)*</S.Label>
             <S.RegisterInput
               onClick={() => {
-                setFirstLine(true);
-                setSecondLine(true);
-                setThirdLine(!ThirdLine);
-                setFourthLine(true);
-                setFifthLine(true);
-                setSixthLine(true);
-                setSeventhLine(true);
+                setFirstLine("");
+                setSecondLine("");
+                setThirdLine("primary");
+                setFourthLine("");
+                setFifthLine("");
+                setSixthLine("");
+                setSeventhLine("");
               }}
               type="text" required  onChange={(e)=>{setUserPhoto(e.target.value)}} value={UserPhoto} />
 
-            <S.RegisterLine isOn={ThirdLine}></S.RegisterLine>
-            <label>CPF*</label>
+            <S.RegisterLine boxShadow={ThirdLine}></S.RegisterLine>
+            <S.Label isTrue={FourthLine != "danger"}>CPF*</S.Label>
             <S.RegisterInput
               onClick={() => {
-                setFirstLine(true);
-                setSecondLine(true);
-                setThirdLine(true);
-                setFourthLine(!FourthLine);
-                setFifthLine(true);
-                setSixthLine(true);
-                setSeventhLine(true);
+                setFirstLine("");
+                setSecondLine("");
+                setThirdLine("");
+                setFourthLine("primary");
+                setFifthLine("");
+                setSixthLine("");
+                setSeventhLine("");
               }}
               type="text" required onChange={(e)=>{setUserDocument(e.target.value)}} value={UserDocument} 
               />
-            <S.RegisterLine isOn={FourthLine}></S.RegisterLine>
-            <label>Endereço*</label>
+            <S.RegisterLine boxShadow={FourthLine}></S.RegisterLine>
+            <S.Label isTrue={FifthLine != "danger"}>Endereço*</S.Label>
             <S.RegisterInput
               onClick={() => {
-                setFirstLine(true);
-                setSecondLine(true);
-                setThirdLine(true);
-                setFourthLine(true);
-                setFifthLine(!FifthLine);
-                setSixthLine(true);
-                setSeventhLine(true);
+                setFirstLine("");
+                setSecondLine("");
+                setThirdLine("");
+                setFourthLine("");
+                setFifthLine("primary");
+                setSixthLine("");
+                setSeventhLine("");
               }}
               type="text" required onChange={(e)=>{setUserAddress(e.target.value)}} value={UserAddress}
               /> 
-            <S.RegisterLine isOn={FifthLine}></S.RegisterLine>
-            <label>Senha*</label>
+            <S.RegisterLine boxShadow={FifthLine}></S.RegisterLine>
+            <S.Label isTrue={SixthLine != "danger"}>Senha*</S.Label>
             <S.RegisterInput
               onClick={() => {
-                setFirstLine(true);
-                setSecondLine(true);
-                setThirdLine(true);
-                setFourthLine(true);
-                setFifthLine(true);
-                setSixthLine(!SixthLine);
-                setSeventhLine(true);
+                setFirstLine("");
+                setSecondLine("");
+                setThirdLine("");
+                setFourthLine("");
+                setFifthLine("");
+                setSixthLine("primary");
+                setSeventhLine("");
               }}
               type={hidePassword} required onChange={(e)=>{setUserPassword(e.target.value)}} value={UserPassword}
               />
-            <S.RegisterLine isOn={SixthLine}></S.RegisterLine>
+            <S.RegisterLine boxShadow={SixthLine}></S.RegisterLine>
             {UserPassword.length > 3 && <S.SeePasswordRegister src={Password} alt="" onClick={() => { hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password")}} />}
-            <label>Confirmar Senha*</label>
+            <S.Label isTrue={SeventhLine != "danger"}>Confirmar Senha*</S.Label>
             <S.RegisterInput 
               onClick={() => {
-                setFirstLine(true);
-                setSecondLine(true);
-                setThirdLine(true);
-                setFourthLine(true);
-                setFifthLine(true);
-                setSixthLine(true);
-                setSeventhLine(!SeventhLine);
+                setFirstLine("");
+                setSecondLine("");
+                setThirdLine("");
+                setFourthLine("");
+                setFifthLine("");
+                setSixthLine("");
+                setSeventhLine("primary");
               }} type={SecondHidePassword} required onChange={(e) => { setConfirmPassword(e.target.value)}} value={ConfirmPassword}
               />
 
-            <S.RegisterLine isOn={SeventhLine}></S.RegisterLine>
+            <S.RegisterLine boxShadow={SeventhLine}></S.RegisterLine>
             {ConfirmPassword.length > 3 && <S.SecondSeePasswordRegister src={Password} alt="" onClick={() =>{ SecondHidePassword !== "text" ? setSecondHidePassword("text"):setSecondHidePassword("password")}}/> }
           <S.ButtonsBox>
             <button onClick={()=>{UserName && UserEmail && UserPhoto && UserDocument && UserAddress && UserPassword && ConfirmPassword !== "" ? UploadInfos() : WarningInfo()}}>CADASTRAR</button>

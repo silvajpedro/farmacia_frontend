@@ -6,20 +6,22 @@ import loading1 from "../../Assets/Loading1.gif";
 import loading2 from "../../Assets/loading2.gif";
 import loading3 from "../../Assets/loading3.gif";
 export default function Login(){
-const [On, setOn] = useState(true);
-const [Active, setActive] = useState(true);
+const [On, setOn] = useState("");
+const [Active, setActive] = useState("");
 const [Charge, setCharge] = useState(true);
 const [hidePassword, setHidePassword] = useState("password");
 const [userLogin, setUserLogin] = useState("");
 const [userPassword, setUserPassword] = useState("");
 const [IsTrue, setIsTrue] = useState(false)
+//fazer aqui isTrue do loading
+
 const WarningLogin = () =>{
-    if(userLogin != localStorage.getItem("nome")){
+    if(userLogin !== localStorage.getItem("nome")){
     alert("Dados de usuário inconsistentes");
-    (document.body.getElementsByTagName("div")[1].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[0].style.color = "red");
-} else if(userPassword != localStorage.getItem("senha")){
+    setOn("danger")
+} else if(userPassword !== localStorage.getItem("senha")){
     alert("Dados de senha incorretos");
-    (document.body.getElementsByTagName("div")[2].style.boxShadow = " inset red 30vw 0px 0px 0px") (document.body.getElementsByTagName("label")[1].style.color = "red");
+    setActive("danger")
 }
 }
 const SuccessLogin = () =>{
@@ -30,20 +32,20 @@ const SuccessLogin = () =>{
         <S.GlobalStyle/>
        <S.MainBox>
        { IsTrue && <S.LoadingImage src={loading3} alt=""/>}
-        <S.LoginBox  onMouseLeave={()=>{ (setOn(true)) (setActive(true))}}>
+        <S.LoginBox  onMouseLeave={()=>{ (setOn("")) (setActive(""))}}>
             <S.LogoContainer>
             <S.Logo src={logo} alt="" />
             </S.LogoContainer>
             <S.FormBox onSubmit={(e)=> e.preventDefault()}>
-                <label>Usuário</label>
-                <S.UserInput onClick={()=>( (setOn(!On)) (setActive(true)))} onChange={(e)=>{setUserLogin(e.target.value)}} value={userLogin} type="text" placeholder="Entre com seu usuário" title="digite seu nome"/>
-                <S.Line  isOn={On}></S.Line>
-                <label>Senha</label>
-                <S.PasswordInput value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}} onClick={()=>( (setOn(true)) (setActive(!Active)) )} type={hidePassword} placeholder="Entre com sua senha" title="digite seu nome"/>
-                <S.SecondLine isOn={Active}></S.SecondLine>
+                <S.LabelLogin isTrue={On !== "danger"}>Usuário</S.LabelLogin>
+                <S.UserInput onClick={()=>( (setOn("primary")) (setActive(true)))} onChange={(e)=>{setUserLogin(e.target.value)}} value={userLogin} type="text" placeholder="Entre com seu usuário" title="digite seu nome"/>
+                <S.Line  boxShadow={On}></S.Line>
+                <S.LabelLogin isTrue={Active !== "danger"}>Senha</S.LabelLogin>
+                <S.PasswordInput value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}} onClick={()=>( (setOn("")) (setActive("primary")) )} type={hidePassword} placeholder="Entre com sua senha" title="digite seu nome"/>
+                <S.SecondLine boxShadow={Active}></S.SecondLine>
             {userPassword.length > 3 && <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>}
                 <S.ButtonBox>
-                <button onClick={()=>{ userLogin != localStorage.getItem("nome") || userPassword != localStorage.getItem("senha") ? WarningLogin()  : SuccessLogin() }}>LOGAR</button>
+                <button onClick={()=>{ userLogin !== localStorage.getItem("nome") || userPassword !== localStorage.getItem("senha") ? WarningLogin()  : SuccessLogin() }}>LOGAR</button>
                 </S.ButtonBox>
             </S.FormBox>
                 <S.RegisterBox>

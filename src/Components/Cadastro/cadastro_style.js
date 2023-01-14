@@ -10,6 +10,7 @@ import {
   ButtonBox,
   SeePassword,
   Links,
+  LabelLogin,
 } from "../Login/login_style.js";
 import email from "../../Assets/email.png";
 import camera from "../../Assets/camera_foto.png";
@@ -74,6 +75,7 @@ export const RegisterBox = styled(LoginBox)`
   background-color: #1d0a33;
   height: 128vh;
   width: 33vw;
+  margin: 0 auto;
 `;
 export const RegisterLogoContainer = styled(LogoContainer)`
   height: 30vh;
@@ -92,6 +94,8 @@ export const RegisterForm = styled(FormBox)`
     left: 0;
   }
 `;
+export const Label = styled(LabelLogin)``
+
 export const RegisterInput = styled(UserInput)`
   background-size: 7.4%;
   height: 6vh;
@@ -100,6 +104,11 @@ export const RegisterInput = styled(UserInput)`
   padding-left: 2.4vw;
 `;
 export const RegisterLine = styled(Line)``;
+
+  // export const Test = styled.button`
+  // height: 5vh;
+  // background-color:${({backgroundColor}) => handleColorType(backgroundColor)};
+  // `
 export const SeePasswordRegister = styled(SeePassword)`
   bottom: 29.9vh;
   right: 1vw;

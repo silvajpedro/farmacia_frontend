@@ -59,6 +59,10 @@ export const FormBox = styled.form`
     font-size: 1.2vw;
   }
 `;
+export const LabelLogin = styled.label`
+    color: ${(props) =>
+    props.isTrue ? "#CCBCAD" : "#FF0000"};
+`
 export const UserInput = styled.input`
   position: relative;
   top: 0.8vh;
@@ -86,9 +90,18 @@ export const Line = styled.div`
   background-color: #ffff;
   height: 0.27vh;
   transition: ease-in-out 0.8s;
-  box-shadow: ${(props) =>
-    props.isOn ? "none" : "inset #1976D2 30vw 0px 0px 0px"};
+  box-shadow: ${({boxShadow}) => handleColorType(boxShadow)};
 `;
+const handleColorType = boxShadow => {
+  switch (boxShadow) {
+    case "primary":
+      return "inset #1976D2 30vw 0px 0px 0px";
+    case "danger":
+      return "inset #FF0000 30vw 0px 0px 0px";
+    default:
+      return "none" ;
+  }
+};
 export const SecondLine = styled(Line)`
   height: 0.3vh;
 `;
