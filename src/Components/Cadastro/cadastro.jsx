@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as S from "./cadastro_style.js";
 import logo from "../../Assets/logo.png";
 import X from "../../Assets/X.png"
@@ -68,6 +68,10 @@ export default function Cadastro() {
       setSixthLine("danger")
     } else if(ConfirmPassword === ""){
       setSeventhLine("danger")
+    } else if( UserPassword !== ConfirmPassword){
+      alert("As senhas não conferem")
+      setSixthLine("danger")
+      setSeventhLine("danger")
     }
   }
 
@@ -94,7 +98,7 @@ export default function Cadastro() {
             <S.RegisterLogo src={logo} alt="" />
           </S.RegisterLogoContainer>
           <S.RegisterForm onSubmit={(e)=>{ e.preventDefault()}}>
-            <S.Label isTrue={FirstLine != "danger"}>Nome*</S.Label>
+            <S.Label isTrue={FirstLine !== "danger"}>Nome*</S.Label>
           <S.RegisterInput
               onClick={() => {
                 setFirstLine("primary");
@@ -108,7 +112,7 @@ export default function Cadastro() {
               type="text" required onChange={(e)=>{setUserName(e.target.value)}} value={UserName} />
 
             <S.RegisterLine  boxShadow={FirstLine}></S.RegisterLine>
-            <S.Label isTrue={SecondLine != "danger"}>Usuário*</S.Label>
+            <S.Label isTrue={SecondLine !== "danger"}>Usuário*</S.Label>
             <S.RegisterInput
               onClick={() => {
                 setFirstLine("");
@@ -123,7 +127,7 @@ export default function Cadastro() {
               />
 
             <S.RegisterLine  boxShadow={SecondLine}></S.RegisterLine>
-            <S.Label  isTrue={ThirdLine != "danger"}>Foto(url)*</S.Label>
+            <S.Label  isTrue={ThirdLine !== "danger"}>Foto(url)*</S.Label>
             <S.RegisterInput
               onClick={() => {
                 setFirstLine("");
@@ -137,7 +141,7 @@ export default function Cadastro() {
               type="text" required  onChange={(e)=>{setUserPhoto(e.target.value)}} value={UserPhoto} />
 
             <S.RegisterLine boxShadow={ThirdLine}></S.RegisterLine>
-            <S.Label isTrue={FourthLine != "danger"}>CPF*</S.Label>
+            <S.Label isTrue={FourthLine !== "danger"}>CPF*</S.Label>
             <S.RegisterInput
               onClick={() => {
                 setFirstLine("");
@@ -151,7 +155,7 @@ export default function Cadastro() {
               type="text" required onChange={(e)=>{setUserDocument(e.target.value)}} value={UserDocument} 
               />
             <S.RegisterLine boxShadow={FourthLine}></S.RegisterLine>
-            <S.Label isTrue={FifthLine != "danger"}>Endereço*</S.Label>
+            <S.Label isTrue={FifthLine !== "danger"}>Endereço*</S.Label>
             <S.RegisterInput
               onClick={() => {
                 setFirstLine("");
@@ -165,7 +169,7 @@ export default function Cadastro() {
               type="text" required onChange={(e)=>{setUserAddress(e.target.value)}} value={UserAddress}
               /> 
             <S.RegisterLine boxShadow={FifthLine}></S.RegisterLine>
-            <S.Label isTrue={SixthLine != "danger"}>Senha*</S.Label>
+            <S.Label isTrue={SixthLine !== "danger"}>Senha*</S.Label>
             <S.RegisterInput
               onClick={() => {
                 setFirstLine("");
@@ -180,7 +184,7 @@ export default function Cadastro() {
               />
             <S.RegisterLine boxShadow={SixthLine}></S.RegisterLine>
             {UserPassword.length > 3 && <S.SeePasswordRegister src={Password} alt="" onClick={() => { hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password")}} />}
-            <S.Label isTrue={SeventhLine != "danger"}>Confirmar Senha*</S.Label>
+            <S.Label isTrue={SeventhLine !== "danger"}>Confirmar Senha*</S.Label>
             <S.RegisterInput 
               onClick={() => {
                 setFirstLine("");
@@ -196,7 +200,7 @@ export default function Cadastro() {
             <S.RegisterLine boxShadow={SeventhLine}></S.RegisterLine>
             {ConfirmPassword.length > 3 && <S.SecondSeePasswordRegister src={Password} alt="" onClick={() =>{ SecondHidePassword !== "text" ? setSecondHidePassword("text"):setSecondHidePassword("password")}}/> }
           <S.ButtonsBox>
-            <button onClick={()=>{UserName && UserEmail && UserPhoto && UserDocument && UserAddress && UserPassword && ConfirmPassword !== "" ? UploadInfos() : WarningInfo()}}>CADASTRAR</button>
+            <button onClick={()=>{UserName && UserEmail && UserPhoto && UserDocument && UserAddress && UserPassword && ConfirmPassword !== "" && UserPassword === ConfirmPassword ? UploadInfos() : WarningInfo()}}>CADASTRAR</button>
             <button>
               <S.LinkBack to="/">CANCELAR</S.LinkBack>
             </button>
