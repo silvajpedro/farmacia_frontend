@@ -18,7 +18,7 @@ export default function Login(){
     //fazer aqui isTrue do loading
     
 const WarningLogin = () =>{
-    if(userLogin !== localStorage.getItem("nome")){
+    if(userLogin !== localStorage.getItem("email")){
         alert("Dados de usuário inconsistentes");
         setOn("danger")
     } else if(userPassword !== localStorage.getItem("senha")){
@@ -40,7 +40,7 @@ const WarningLogin = () =>{
             <S.Logo src={logo} alt="" />
             </S.LogoContainer>
             <S.FormBox onSubmit={(e)=> e.preventDefault()}>
-                <S.LabelLogin isTrue={On !== "danger"}>Usuário</S.LabelLogin>
+                <S.LabelLogin isTrue={On !== "danger"}> E-mail de Usuário</S.LabelLogin>
                 <S.UserInput onClick={()=>( (setOn("primary")) (setActive(true)))} onChange={(e)=>{setUserLogin(e.target.value)}} value={userLogin} type="text" placeholder="Entre com seu usuário" title="digite seu nome"/>
                 <S.Line  boxShadow={On}></S.Line>
                 <S.LabelLogin isTrue={Active !== "danger"}>Senha</S.LabelLogin>
@@ -48,7 +48,7 @@ const WarningLogin = () =>{
                 <S.SecondLine boxShadow={Active}></S.SecondLine>
             {userPassword.length > 3 && <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>}
                 <S.ButtonBox>
-                <button onClick={()=>{ userLogin !== localStorage.getItem("nome") || userPassword !== localStorage.getItem("senha") ? WarningLogin()  : (setIsTrue(true)) (setTimeout(()=>{navigate("/home")}, 6300)) }}>LOGAR</button>
+                <button onClick={()=>{ userLogin === localStorage.getItem("email") && userPassword === localStorage.getItem("senha") ?  (setIsTrue(true)) (setTimeout(()=>{navigate("/home")}, 6300))  : WarningLogin() }}>LOGAR</button>
                 </S.ButtonBox>
             </S.FormBox>
                 <S.RegisterBox>
