@@ -6,7 +6,7 @@ import loading3 from "../../Assets/loading3.gif";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(){
-    
+
     let navigate = useNavigate();
     const [On, setOn] = useState("");
     const [Active, setActive] = useState("");
@@ -58,6 +58,7 @@ const WarningLogin = () =>{
         </S.LoginBox>
        </S.MainBox>
     { IsTrue && <S.WhiteLoading></S.WhiteLoading>}
+   
         </>
     )
 }
