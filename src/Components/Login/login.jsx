@@ -2,36 +2,39 @@ import React, {useState} from "react";
 import * as S from "./login_style.js"
 import logo from "../../Assets/logo.png";
 import Password from "../../Assets/ver_senha2.png";
-import loading1 from "../../Assets/Loading1.gif";
-import loading2 from "../../Assets/loading2.gif";
 import loading3 from "../../Assets/loading3.gif";
-export default function Login(){
-const [On, setOn] = useState("");
-const [Active, setActive] = useState("");
-const [Charge, setCharge] = useState(true);
-const [hidePassword, setHidePassword] = useState("password");
-const [userLogin, setUserLogin] = useState("");
-const [userPassword, setUserPassword] = useState("");
-const [IsTrue, setIsTrue] = useState(false)
-//fazer aqui isTrue do loading
+import { useNavigate } from "react-router-dom";
 
+export default function Login(){
+    
+    let navigate = useNavigate();
+    const [On, setOn] = useState("");
+    const [Active, setActive] = useState("");
+    const [Charge, setCharge] = useState(true);
+    const [hidePassword, setHidePassword] = useState("password");
+    const [userLogin, setUserLogin] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    const [IsTrue, setIsTrue] = useState(false)
+    //fazer aqui isTrue do loading
+    
 const WarningLogin = () =>{
     if(userLogin !== localStorage.getItem("nome")){
-    alert("Dados de usuário inconsistentes");
-    setOn("danger")
-} else if(userPassword !== localStorage.getItem("senha")){
-    alert("Dados de senha incorretos");
-    setActive("danger")
+        alert("Dados de usuário inconsistentes");
+        setOn("danger")
+    } else if(userPassword !== localStorage.getItem("senha")){
+        alert("Dados de senha incorretos");
+        setActive("danger")
+    }
 }
-}
-const SuccessLogin = () =>{
 
-}
+// useEffect(()=>{
+
+// }, [SuccessLogin])
     return(
         <>
         <S.GlobalStyle/>
        <S.MainBox>
-       { IsTrue && <S.LoadingImage src={loading3} alt=""/>}
+       { IsTrue && <S.LoadingImage  src={loading3} draggable="false" alt=""/>}
         <S.LoginBox  onMouseLeave={()=>{ (setOn("")) (setActive(""))}}>
             <S.LogoContainer>
             <S.Logo src={logo} alt="" />
@@ -45,7 +48,7 @@ const SuccessLogin = () =>{
                 <S.SecondLine boxShadow={Active}></S.SecondLine>
             {userPassword.length > 3 && <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>}
                 <S.ButtonBox>
-                <button onClick={()=>{ userLogin !== localStorage.getItem("nome") || userPassword !== localStorage.getItem("senha") ? WarningLogin()  : SuccessLogin() }}>LOGAR</button>
+                <button onClick={()=>{ userLogin !== localStorage.getItem("nome") || userPassword !== localStorage.getItem("senha") ? WarningLogin()  : (setIsTrue(true)) (setTimeout(()=>{navigate("/home")}, 6300)) }}>LOGAR</button>
                 </S.ButtonBox>
             </S.FormBox>
                 <S.RegisterBox>

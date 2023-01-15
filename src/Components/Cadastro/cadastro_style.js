@@ -1,17 +1,5 @@
 import styled from "styled-components";
-import {
-  LoginBox,
-  MainBox,
-  LogoContainer,
-  Logo,
-  FormBox,
-  UserInput,
-  Line,
-  ButtonBox,
-  SeePassword,
-  Links,
-  LabelLogin,
-} from "../Login/login_style.js";
+import {LoginBox, MainBox,LogoContainer, Logo, FormBox,UserInput,Line, ButtonBox,SeePassword, Links,LabelLogin,} from "../Login/login_style.js";
 import email from "../../Assets/email.png";
 import camera from "../../Assets/camera_foto.png";
 import cpf from "../../Assets/cpf.png";

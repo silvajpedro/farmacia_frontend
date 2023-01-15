@@ -4,8 +4,7 @@ import logo from "../../Assets/logo.png";
 import X from "../../Assets/X.png"
 import { GlobalStyle } from "../Login/login_style.js";
 import Password from "../../Assets/ver_senha2.png";
-import { useNavigate } from "react-router-dom";
-import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function Cadastro() {
   
@@ -13,8 +12,7 @@ export default function Cadastro() {
   // console.log(nodeList)
   // const elements = Array.from(nodeList)
   // console.log(elements)
-  
-  let navigate = useNavigate();
+
   // const [isTrue,setIsTrue] = useState("")
   const [FirstLine, setFirstLine] = useState("");
   const [SecondLine, setSecondLine] = useState("");
@@ -78,7 +76,7 @@ export default function Cadastro() {
   return (
     <>
       <GlobalStyle />
-      { ConfirmRegister &&  <S.X src={X} onClick={()=>{navigate("/")}} alt=""  /> }
+      { ConfirmRegister &&  <Link to="/"><S.X src={X} alt=""  /></Link> }
 <S.RegisterMainBox>
     
       {ConfirmRegister && <S.NoticeBox> <p>Seu cadastro foi concluído!</p> <p>Obrigado😁</p> </S.NoticeBox> }
