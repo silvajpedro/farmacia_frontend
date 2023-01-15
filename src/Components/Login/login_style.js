@@ -4,6 +4,7 @@ import cadeado from "../../Assets/cadeado_senha.png";
 import usuario from "../../Assets/usuario.png";
 import { createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
+
 export const GlobalStyle = createGlobalStyle`
 *{
     margin: 0;
@@ -29,7 +30,7 @@ width: 9vw;
 z-index: 10;
 `
 export const LoginBox = styled.section`
-
+  position:relative;
   display: flex;
   flex-direction: column;
   align-items: center;

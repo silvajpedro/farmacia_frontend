@@ -64,6 +64,9 @@ export default function Cadastro() {
       setFifthLine("danger")
     } else if(UserPassword === ""){
       setSixthLine("danger")
+    } else if(UserPassword.length < 3){
+      alert("A senha não pode ter menos de 3 caracteres")
+      setSixthLine("danger")
     } else if(ConfirmPassword === ""){
       setSeventhLine("danger")
     } else if( UserPassword !== ConfirmPassword){
@@ -198,7 +201,7 @@ export default function Cadastro() {
             <S.RegisterLine boxShadow={SeventhLine}></S.RegisterLine>
             {ConfirmPassword.length > 3 && <S.SecondSeePasswordRegister src={Password} alt="" onClick={() =>{ SecondHidePassword !== "text" ? setSecondHidePassword("text"):setSecondHidePassword("password")}}/> }
           <S.ButtonsBox>
-            <button onClick={()=>{UserName && UserEmail && UserPhoto && UserDocument && UserAddress && UserPassword && ConfirmPassword !== "" && UserPassword === ConfirmPassword ? UploadInfos() : WarningInfo()}}>CADASTRAR</button>
+            <button onClick={()=>{UserName && UserEmail && UserPhoto && UserDocument && UserAddress && UserPassword && ConfirmPassword !== "" && UserPassword === ConfirmPassword && UserPassword.length >= 4 ? UploadInfos() : WarningInfo()}}>CADASTRAR</button>
             <button>
               <S.LinkBack to="/">CANCELAR</S.LinkBack>
             </button>

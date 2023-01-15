@@ -10,3 +10,6 @@ img{
     width: 32vw;
 }
 `
+export const ProfileImage = styled.img`
+border-radius:100%;
+`

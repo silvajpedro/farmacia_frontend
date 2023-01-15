@@ -27,9 +27,6 @@ const WarningLogin = () =>{
     }
 }
 
-// useEffect(()=>{
-
-// }, [SuccessLogin])
     return(
         <>
         <S.GlobalStyle/>
