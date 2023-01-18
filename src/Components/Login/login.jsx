@@ -45,7 +45,7 @@ const WarningLogin = () =>{
                 <S.SecondLine boxShadow={Active}></S.SecondLine>
             {userPassword.length > 3 && <S.SeePassword src={Password} alt="" onClick={()=>(hidePassword !== "text" ? setHidePassword("text"):setHidePassword("password"))}/>}
                 <S.ButtonBox>
-                <button onClick={()=>{ userLogin === localStorage.getItem("email") && userPassword === localStorage.getItem("senha") ?  (setIsTrue(true)) (setTimeout(()=>{navigate("/home")}, 6300))  : WarningLogin() }}>LOGAR</button>
+                <button onClick={()=>{ userLogin === localStorage.getItem("email") && userPassword === localStorage.getItem("senha") ?  (setIsTrue(true)) (setTimeout(()=>{navigate("/sobre_nos")}, 6300))  : WarningLogin() }}>LOGAR</button>
                 </S.ButtonBox>
             </S.FormBox>
                 <S.RegisterBox>
