@@ -38,7 +38,7 @@ const WarningLogin = () =>{
             </S.LogoContainer>
             <S.FormBox onSubmit={(e)=> e.preventDefault()}>
                 <S.LabelLogin isTrue={On !== "danger"}> E-mail de Usuário</S.LabelLogin>
-                <S.UserInput onClick={()=>( (setOn("primary")) (setActive(true)))} onChange={(e)=>{setUserLogin(e.target.value)}} value={userLogin} type="text" placeholder="Entre com seu usuário" title="digite seu nome"/>
+                <S.UserInput onClick={()=>( (setOn("primary")) (setActive(true)))} onChange={(e)=>{setUserLogin(e.target.value)}} value={userLogin} type="text" placeholder="Entre com seu e-mail" title="digite seu nome"/>
                 <S.Line  boxShadow={On}></S.Line>
                 <S.LabelLogin isTrue={Active !== "danger"}>Senha</S.LabelLogin>
                 <S.PasswordInput value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}} onClick={()=>( (setOn("")) (setActive("primary")) )} type={hidePassword} placeholder="Entre com sua senha" title="digite seu nome"/>

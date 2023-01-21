@@ -113,7 +113,7 @@ export default function Cadastro() {
               type="text" required onChange={(e)=>{setUserName(e.target.value)}} value={UserName} />
 
             <S.RegisterLine  boxShadow={FirstLine}></S.RegisterLine>
-            <S.Label isTrue={SecondLine !== "danger"}>Usuário*</S.Label>
+            <S.Label isTrue={SecondLine !== "danger"}>E-mail de Usuário*</S.Label>
             <S.RegisterInput
               onClick={() => {
                 setFirstLine("");
