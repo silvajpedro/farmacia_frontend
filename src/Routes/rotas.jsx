@@ -21,7 +21,7 @@ export default function Rotas(){
          <Route path="/categorias" element={<Categorias/>} />
          <Route path="/cadastrar_cat" element={<CadastrarCat/>} />
          <Route path="/equipe" element={<Equipe/>} />
-         <Route path="/sobre_nos" element={<SobreNos/>} />
+         <Route path="/home" element={<SobreNos/>} />
       </Routes>
     </BrowserRouter>
     </>

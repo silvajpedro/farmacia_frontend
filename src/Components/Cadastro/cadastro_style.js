@@ -63,7 +63,6 @@ export const RegisterBox = styled(LoginBox)`
   background-color: #1d0a33;
   height: 128vh;
   width: 33vw;
-  margin: 0 auto;
 `;
 export const RegisterLogoContainer = styled(LogoContainer)`
   height: 30vh;
