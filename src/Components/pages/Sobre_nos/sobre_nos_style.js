@@ -3,20 +3,20 @@ import {RegisterLogoContainer} from "../../Cadastro/cadastro_style.js"
 export const MainAboutUs = styled.main`
 
 background: #D2FCF6;
-height: 100vh;
+height: 138vh;
 `
 export const LogoBox = styled(RegisterLogoContainer)`
 height: 36vh;
 `
 export const BigLogo = styled.img`
 object-fit:cover;
+width: 22vw;
 `
 export const FirstSectionBox = styled.section`
 display: flex;
 align-items: center;
 justify-content: space-evenly;
 flex-direction: column;
-/* border: solid; */
 height: 31vh;
 `
 export const TitleBox = styled(FirstSectionBox)`
@@ -28,12 +28,11 @@ p{
 `
 export const TitleHome = styled.h1`
 font-family: "Quicksand", sans-serif;
-font-size: 2.95vw;
+font-size: 3.25vw;
 `
 export const ButtonsHomeBox = styled.div`
 display: flex;
 justify-content: space-between;
-/* border: solid; */
 width:23.7vw;
 `
 export const RegisterProduct = styled.button`
@@ -55,4 +54,64 @@ width: 9.6vw;
 background: transparent;
 color: #4D3EFC;
 border: solid 1px;
+`
+export const SecondSectionBox = styled.section`
+display: flex;
+justify-content: center;
+align-items: center;
+height:70vh;
+`
+export const ProjectBox = styled.div`
+display:flex;
+align-items: center;
+width: 82%;
+height: 55vh;
+border-radius: 15px;
+background:#4D3EFC;
+`
+export const FirstDivProject = styled.div`
+position: relative;
+top:-4vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 40vh;
+width: 100vw;
+p{
+    width:36vw;
+    margin-left:3vw;
+    margin-top: 0.5px;
+    text-align: left;
+    color: #ffff;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size:  1.25vw;
+}
+`
+export const ProjectTitle = styled.h2`
+font-size: 3.7vw;
+font-family: "Quicksand", sans-serif;
+font-weight: 900;
+color: #ffff;
+text-align: center;
+`
+export const ProjectButton = styled(RegisterProduct)`
+position: absolute;
+top:33vh;
+left:5vw;
+color: #000;
+background-color: #30D1BC;
+font-family: "Quicksand", sans-serif;
+font-weight: 900;
+width: 7.4vw;
+`
+export const SecondDivProject = styled.div`
+display: flex;
+justify-content: center;
+width:85vw;
+padding-right: 1vw;
+`
+export const DoctorImage = styled.img`
+width:33vw;
 `
