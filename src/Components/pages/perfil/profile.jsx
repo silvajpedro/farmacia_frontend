@@ -8,7 +8,7 @@ export default function Profile(){
         <S.MainProfile>
             <S.UserProfile>
                 <S.UserInfoBox>
-
+                        <img src={localStorage.getItem('foto')} alt="" />
                 </S.UserInfoBox>
                 <S.UserProducts>
 
