@@ -8,6 +8,7 @@ import Categorias from "../Components/pages/categorias/categorias.jsx";
 import CadastrarCat from "../Components/pages/cadastrar_cat/cadastrar_cat.jsx";
 import Equipe from "../Components/pages/Equipe/equipe.jsx";
 import SobreNos from "../Components/pages/Sobre_nos/sobre_nos.jsx";
+import Profile  from "../Components/pages/perfil/profile.jsx";
 export default function Rotas(){
  return(
     <>
@@ -22,6 +23,7 @@ export default function Rotas(){
          <Route path="/cadastrar_cat" element={<CadastrarCat/>} />
          <Route path="/equipe" element={<Equipe/>} />
          <Route path="/home" element={<SobreNos/>} />
+         <Route path="/profile" element={<Profile/>} />
       </Routes>
     </BrowserRouter>
     </>

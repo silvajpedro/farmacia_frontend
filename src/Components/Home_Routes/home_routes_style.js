@@ -9,7 +9,7 @@ display: flex;
 align-items: center;
 justify-content: space-around;
 background-color: #D2FCF6;
-height: 13vh;
+height: 13.5vh;
 `
 export const Logo = styled.img`
 width: 7.2vw;
@@ -27,7 +27,7 @@ justify-content: space-around;
 align-items: center;
 list-style: none;
 /* border: solid; */
-width: 54vw;
+width: 56.5vw;
 `
 export const Links = styled(Link)`
 text-decoration: none;
@@ -35,26 +35,38 @@ font-size:1.32vw;
 font-family: "Quicksand", sans-serif;
 font-weight: 900;
 color: #000;
+&:hover{
+    opacity: 0.5;
+}
 `
 export const IconsBox = styled.div`
 position: relative;
 display: flex;
 justify-content: space-around;
-width: 6.8vw;
+align-items: center;
+width: 11vw;
 /* border: solid; */
 `
 export const UserIcon = styled.img`
-width: 2.12vw;
-height: 4.12vh;
+width: 5vw;
+/* height: 9vh; */
+border: solid 2px #4D3EFC;
+border-radius: 50%;
+cursor: pointer;
+&:hover{
+    opacity: 0.5;
+}
 `
 
-export const ShopIcon = styled(UserIcon)`
+export const ShopIcon = styled.img`
+width: 2.9vw;
+margin-top:3px;
 cursor: pointer;
 `
 export const ShopItens = styled.p`
 position: absolute;
-top: 2.2vh;
-right: 0.5vw;
+top: 5vh;
+right:7vw;
 text-align: center;
 border: solid 1px #0000EE;
 background-color:#F1F3F4;
@@ -62,7 +74,6 @@ color:#000;
 width:1.6vw;
 height:3.4vh;
 font-weight: 600;
-
 border-radius:55%;
 `
 export const ExitButton = styled.button`
@@ -72,4 +83,7 @@ height: 5.5vh;
 cursor: pointer;
 border-radius: 6px;
 border:solid 1.9px;
+&:hover{
+    opacity: 0.5;
+}
 `

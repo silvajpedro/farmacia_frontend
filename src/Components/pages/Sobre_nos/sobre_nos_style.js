@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import {RegisterLogoContainer} from "../../Cadastro/cadastro_style.js"
-export const MainAboutUs = styled.main`
 
-background: #D2FCF6;
+export const colors ={
+    mainColor:"#D2FCF6"
+}
+
+export const MainAboutUs = styled.main`
+background:${colors.mainColor};
 height: 138vh;
 `
 export const LogoBox = styled(RegisterLogoContainer)`
@@ -46,7 +50,7 @@ border-radius:4px;
 letter-spacing: 0.1px;
 cursor: pointer;
 &:hover{
-    opacity: 0.85;
+    opacity: 0.80;
 }
 `
 export const SeeProduct = styled(RegisterProduct)`
@@ -54,6 +58,9 @@ width: 9.6vw;
 background: transparent;
 color: #4D3EFC;
 border: solid 1px;
+&:hover{
+    opacity: 0.50;
+}
 `
 export const SecondSectionBox = styled.section`
 display: flex;
